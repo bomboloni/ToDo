@@ -1,6 +1,8 @@
 # To Do List
 
-## 100Devs Folx! This is the source of the code that James/theDabolical was helping me with and adding to on a couple of his streams. I have created a branch for his version of the code. You can fork it or clone it here:
+## Dab Gang & 100Devs Folx!
+
+This is the source of the code that James/theDabolical was helping me with, and adding to, in a couple of his streams. I have created a branch for his version of the code. You can fork it or clone it here:
 
 ## https://github.com/bomboloni/ToDo/tree/dev-guest-starring-theDabolical
 

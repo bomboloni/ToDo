@@ -31,7 +31,12 @@ app.get('/',async (request, response) => {
 })
 
 app.post('/addTask', (request, response) => {
-    db.collection('tasks').insertOne({ taskName: request.body.task, completed: false })
+    db.collection('tasks').insertOne(
+        { 
+            taskName: request.body.task, 
+            completed: false 
+        }
+        )
         .then(result => {
             console.log('Task Added To List')
             response.redirect('/')
@@ -40,7 +45,13 @@ app.post('/addTask', (request, response) => {
 })
 
 app.put('/updateTask', (request, response) => {
-    db.collection('tasks').updateOne({ taskName: request.body.task }, { set: { completed: true } })
+    const task = request.body.task;
+    const completed = request.body.completed;
+
+    db.collection('tasks').updateOne(
+        { taskName: task }, 
+        { set: { completed: completed } }
+        )
     .then((result) => {
         console.log('Task Marked Completed');
         response.json('Task Marked Completed');

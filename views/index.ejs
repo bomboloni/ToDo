@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>To Do:</h1>
     <ol class="tasks">
     <% for(let i = 0; i < info.length; i++) {%>
         <li class="task">
-            <!-- <form action="/updateTask" method="PUT"> -->
-                <input type="checkbox" class="update" action="/updateTask" method="PUT" <%= info[1].completed && "checked" %> />
-            <!-- </form> -->
+                <input type="checkbox" class="update" <%= info[1].completed && "checked" %> />
             <span><%= info[i].taskName %></span>
             <span><button class="delete-button">delete</button></span>
         </li>

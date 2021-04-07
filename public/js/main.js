@@ -5,12 +5,12 @@ Array.from(deleteButton).forEach((element) => {
     element.addEventListener('click', deleteTask)
 })
 Array.from(checkBox).forEach((element) => {
-    element.addEventListener('click', updateTask)
+    element.addEventListener('change', updateTask)
 })
 //or (Dab's stream, 1:37:00 in) BTW - DAB USED AN UPDATE BUTTON, NOT CHECKBOX
 /*
 [...checkBox].forEach((element) => {
-    element.addEventListener('click', updateTask);
+    element.addEventListener('change', updateTask);
 });
 */
 
@@ -36,7 +36,9 @@ async function deleteTask(event) {
 }
 
 async function updateTask(event) {
-    const tTask = event.target.nextElementSibling.innerText;
+    const checkbox = event.target;
+    const tTask = checkbox.nextElementSibling.innerText;
+    const completed = checkbox.checked;
     console.log(tTask)
 
     try {
@@ -45,6 +47,7 @@ async function updateTask(event) {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 task: tTask,
+                completed: completed,
             }),
         });
         const data = await response.json()

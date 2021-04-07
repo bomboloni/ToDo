@@ -6,7 +6,7 @@ This is the source of the code that James/theDabolical was helping me with, and 
 
 ## https://github.com/bomboloni/ToDo/tree/dev-guest-starring-theDabolical
 
-Fork it if you want to play with it and possibly practice pull requests. I am happy to continue this branch for us to play and learn on for as long as it is useful.
+Fork it if you want to play with it and possibly practice pull requests. I am happy to continue this branch for us to play with and learn on for as long as it is useful.
 
 I know a lot of us are still new to GitHub and just starting to learn how to collaborate with others. I found a particularly useful video that is part of a playlist (part 6) that gave me a better understanding of forks and branches and pull requests and best practices when working with others. Check out the whole playlist [here](https://www.youtube.com/playlist?list=PL3Y9MECuxct0RMwdYcqoIjo-7ncRpTNLs).
 

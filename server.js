@@ -11,7 +11,7 @@ let db,
     dbName = 'todo'
 
 MongoClient.connect(dbConnectionStr, {
-    useUnifiedTopology: true
+    useUnifiedTopology: true //,
 })
     .then(client => {
         console.log(`Connected to ${dbName} Database`)
@@ -19,11 +19,11 @@ MongoClient.connect(dbConnectionStr, {
     })
 
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.use(express.static('public')) //app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.get('/',async (request, response) => {  
+app.get('/',async (request, response) => {
 
     const todoItems = await db.collection('tasks').find().toArray()
    // const itemsLeft = await db.collection('tasks').countDocuments({completed: false})
@@ -43,7 +43,7 @@ app.post('/addTask', (request, response) => {
         })
         .catch(error => console.error(error))
 })
-
+/*
 app.put('/updateTask', (request, response) => {
     const task = request.body.task;
     const completed = request.body.completed;
@@ -58,12 +58,26 @@ app.put('/updateTask', (request, response) => {
     })
     .catch(error => console.error(error))
 })
+*/
+////////
+app.put("/updateTask", (req, res) => {
+      const task = req.body.task;
+      const completed = req.body.completed;
+      db.collection("tasks")
+        .updateOne({ taskName: task }, { $set: { completed: true } })
+        .then((result) => {
+          console.log("Task Updated");
+          res.json("Task Updated");
+        })
+        .catch((error) => console.error(error));
+    });
+//////
 
 app.delete('/deleteTask', (request, response) => {
     db.collection('tasks').deleteOne({ taskName: request.body.task })
         .then(result => {
-            console.log('Task Deleted')
-            response.json('Task Deleted')
+            console.log('Task Marked Completed')
+            response.json('Task Marked Completed')
         })
         .catch(error => console.error(error))
 })

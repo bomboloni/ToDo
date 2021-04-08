@@ -15,12 +15,11 @@
         <li class="task">
             <% if(info[i].completed === true) {%>
                 <input type="checkbox" class="update" checked/>
-                <span class='update'><%= info[i].taskName %></span>
+                <span class='completed'><%= info[i].taskName %></span>
             <% }else{ %>
                 <input type="checkbox" class="update"/>
                 <span><%= info[i].taskName %></span>
             <% } %>    
-            <span class='fa fa-trash'></span>
         </li>
       
         <!-- <li class="task">
